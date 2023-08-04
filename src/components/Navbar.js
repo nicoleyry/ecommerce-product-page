@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../styles/_navbar.scss'
+import '../styles/navbar.scss'
 
 import logo from '../images/logo.svg';
 import cart from '../images/icon-cart.svg';

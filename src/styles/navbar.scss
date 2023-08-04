@@ -1,7 +1,7 @@
-@import "../styles/variables";
+@use './variables' as var;
 
 .navbar {
-	border-bottom: 3px solid $color-light-grayish-blue;
+	border-bottom: 3px solid var.$color-light-grayish-blue;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -17,13 +17,13 @@
 		& p {
 			padding: 20px;
 			cursor: pointer;
-			color: $color-dark-grayish-blue;
+			color: var.$color-dark-grayish-blue;
 			border-bottom: 3px solid transparent;
 
 			&:hover,
 			&:active {
-				color: $color-dark-blue;
-				border-bottom: 3px solid $color-orange;
+				color: var.$color-dark-blue;
+				border-bottom: 3px solid var.$color-orange;
 			}
 		}
 	}
@@ -44,8 +44,8 @@
 			}
 			&-num {
 				border-radius: 10px;
-				background-color: $color-orange;
-				color: $color-pale-orange;
+				background-color: var.$color-orange;
+				color: var.$color-pale-orange;
 				font-size: 12px;
 				width: 18px;
 				display: inline-block;
@@ -57,7 +57,7 @@
 				left: 80%;
 			}
 			&-dropdown {
-				background-color: $color-white;
+				background-color: var.$color-white;
 				position: absolute;
 				left: 50%;
 				top: 35px;
@@ -70,7 +70,7 @@
 				height: auto;
 
 				&-top {
-					border-bottom: 3px solid $color-light-grayish-blue;
+					border-bottom: 3px solid var.$color-light-grayish-blue;
 					padding: 15px;
 
 					& p {
@@ -90,7 +90,7 @@
 					align-items: center;
 
 					&>p {
-						color: $color-dark-grayish-blue;
+						color: var.$color-dark-grayish-blue;
 						font-weight: 700;
 						font-size: 12px;
 					}
@@ -108,7 +108,7 @@
 							}
 							&-details {
 								text-align: left;
-								color: $color-grayish-blue;
+								color: var.$color-grayish-blue;
 	
 								& .title {
 									font-size: 12px;
@@ -118,7 +118,7 @@
 									font-size: 12px;
 	
 									&-total {
-										color: $color-black;
+										color: var.$color-black;
 										font-weight: 700;
 									}
 								}
@@ -128,8 +128,8 @@
 							}
 						}
 						&-button {
-							background-color: $color-orange;
-							color: $color-pale-orange;
+							background-color: var.$color-orange;
+							color: var.$color-pale-orange;
 							padding: 12px;
 							width: 100%;
 							border: 0;
@@ -149,7 +149,7 @@
 
 			&:hover,
 			&:active {
-				border: 3px solid $color-orange;
+				border: 3px solid var.$color-orange;
 			}
 		}
 	}
