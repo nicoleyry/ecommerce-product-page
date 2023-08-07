@@ -1,4 +1,5 @@
 @use './variables' as var;
+@use './mixins' as mix;
 
 $showcase-w: 350px;
 $thumbnail-space: 30px;
@@ -7,7 +8,7 @@ $img-border-radius: 10px;
 .item-showcase {
 	position: relative;
 	margin-top: 50px;
-	place-self: center;
+	justify-self: end;
 	max-width: $showcase-w;
 
 	& .showcase {
@@ -43,7 +44,7 @@ $img-border-radius: 10px;
 		left: 0;
 		width: 100vw;
 		height: 100vh;
-		background-color: rgba(0, 0, 0, .8);
+		background-color: rgba( var.$color-black,.8);
 		z-index: 99;
 		display: flex;
 		justify-content: center;
@@ -57,7 +58,7 @@ $img-border-radius: 10px;
 				position: absolute;
 				top: -30px;
 				right: 0;
-				filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(286deg) brightness(109%) contrast(100%);
+				filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(286deg) brightness(109%) contrast(100%);
 	
 				&:hover,
 				&:active {
@@ -75,9 +76,8 @@ $img-border-radius: 10px;
 				top: 40%;
 				z-index: 1;
 				transform: translateY(-50%);
-				display: flex;
+				@include mix.alignment-center();
 				justify-content: center;
-				align-items: center;
 	
 				&:hover img,
 				&:active img {

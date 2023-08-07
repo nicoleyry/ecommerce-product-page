@@ -1,0 +1,16 @@
+@use "./variables" as var;
+
+@mixin alignment-center() {
+	display: flex;
+	align-items: center;
+};
+
+@mixin btn-effect() {
+	&:hover {
+		background-color: rgba(var.$color-orange, $alpha: 0.9);
+	}
+	&:active {
+		box-shadow: rgba(var.$color-dark-blue, 0.25) 0px 18px 36px -18px inset;
+		transform: translateY(1px);
+	}
+}

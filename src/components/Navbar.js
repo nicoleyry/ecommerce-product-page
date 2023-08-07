@@ -9,7 +9,7 @@ import cartDelete from '../images/icon-delete.svg';
 
 export default function Navbar() {
 	const [dropdown, setDropdown] = useState(false);
-	const [product, setProduct] = useState(false);
+	const [product, setProduct] = useState(true);
 
 	return (
 		<div className="navbar">
@@ -22,11 +22,10 @@ export default function Navbar() {
 				<p>Contact</p>
 			</div>
 			<div className="navbar-costumer">
-				<div className="navbar-costumer-cart"
-					onClick={() => !dropdown ? setDropdown(true) : setDropdown(false)}
-					onMouseLeave={() => setDropdown(false)}>
-					<img className='navbar-costumer-cart-img' src={cart} alt='cart' />
-					{product && <div className='navbar-costumer-cart-num'>3</div>}
+				<div className="navbar-costumer-cart">
+					<img className='navbar-costumer-cart-img' src={cart} alt='cart' 
+					onClick={() => !dropdown ? setDropdown(true) : setDropdown(false)}/>
+					{product && <div className='navbar-costumer-cart-num' onClick={() => !dropdown ? setDropdown(true) : setDropdown(false)}>3</div>}
 					{dropdown && <div className="navbar-costumer-cart-dropdown">
 						<div className='navbar-costumer-cart-dropdown-top'>
 							<p>Cart</p>

@@ -1,0 +1,94 @@
+@use "./variables" as var;
+@use "./mixins" as mix;
+
+.item-info {
+	max-width: 350px;
+	margin-top: 50px;
+	align-self: center;
+
+	& .subtitle {
+		text-transform: uppercase;
+		color: var.$color-orange;
+		margin-bottom: 10px;
+		font-size: 12px;
+		font-weight: 700;
+	}
+	& .title {
+		margin-bottom: 20px;
+	}
+	& .desc {
+		color: var.$color-dark-grayish-blue;
+		font-size: 12px;
+		line-height: 16px;
+		margin-bottom: 20px;
+	}
+	& .price-block {
+		margin-bottom: 20px;
+
+		& .final-price {
+			font-weight: 700;
+			margin-right: 5px;
+		}
+		& .discount {
+			font-weight: 700;
+			color: var.$color-orange;
+			font-size: 12px;
+			display: inline-block;
+			background-color: rgba(var.$color-orange, $alpha: 0.15);
+			border-radius: 5px;
+			padding: 3px;
+			text-align: center;
+			line-height: 12px;
+		}
+		& .original-price {
+			text-decoration: line-through;
+			color: var.$color-grayish-blue;
+			font-size: 12px;
+		}
+	}
+	& .bottom-area {
+		display: grid;
+		grid-template-columns: 40% 1fr;
+		grid-template-rows: 40px;
+		grid-template-areas: "counter button";
+		column-gap: 10px;
+		text-align: center;
+		justify-items: stretch;
+
+		& > div,
+		& > button {
+			border-radius: 10px;
+		}
+
+		& .counter {
+			@include mix.alignment-center();
+			justify-content: space-around;
+			grid-area: counter;
+			background-color: var.$color-light-grayish-blue;
+
+			& .minus,
+			& .plus {
+				cursor: pointer;
+			}
+		}
+		& .button {
+			@include mix.alignment-center();
+			justify-content: center;
+			gap: 10px;
+			grid-area: button;
+			background-color: var.$color-orange;
+			color: var.$color-light-grayish-blue;
+			font-size: 13px;
+			border: 0px;
+			box-shadow: 0 4px 10px 0 rgba(var.$color-orange, 0.5);
+			cursor: pointer;
+			@include mix.btn-effect();
+
+			& img {
+				width: 15px;
+				filter: brightness(0) saturate(100%) invert(91%) sepia(1%) saturate(2891%) hue-rotate(199deg)
+					brightness(108%) contrast(98%);
+			}
+		}
+	}
+}

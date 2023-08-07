@@ -23,9 +23,9 @@ import product2Thumb from '../images/image-product-2-thumbnail.jpg';
 import product3Thumb from '../images/image-product-3-thumbnail.jpg';
 import product4Thumb from '../images/image-product-4-thumbnail.jpg';
 
-import IconPrev from '../images/icon-previous.svg';
-import IconNext from '../images/icon-next.svg';
-import IconClose from '../images/icon-close.svg';
+import iconPrev from '../images/icon-previous.svg';
+import iconNext from '../images/icon-next.svg';
+import iconClose from '../images/icon-close.svg';
 
 // import required modules
 import { Navigation, Thumbs } from 'swiper/modules';
@@ -140,14 +140,14 @@ export default function ItemShowcase() {
 						<img
 							className='button-close'
 							onClick={(event) => lightboxHandler(event)}
-							src={IconClose}
+							src={iconClose}
 							alt='close'
 						/>
 						<div className='custom-button custom-button-prev'>
-							<img src={IconPrev} alt='previous' />
+							<img src={iconPrev} alt='previous' />
 						</div>
 						<div className='custom-button custom-button-next'>
-							<img src={IconNext} alt='next' />
+							<img src={iconNext} alt='next' />
 						</div>
 						<Swiper
 							onSwiper={setLightboxThumbsSwiper}
