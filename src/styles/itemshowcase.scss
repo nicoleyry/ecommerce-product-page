@@ -1,0 +1,96 @@
+@use './variables' as var;
+
+$showcase-w: 350px;
+$thumbnail-space: 30px;
+$img-border-radius: 10px;
+
+.item-showcase {
+	position: relative;
+	margin-top: 50px;
+	place-self: center;
+	max-width: $showcase-w;
+
+	& .showcase {
+		width: $showcase-w;
+
+		& img {
+			width: $showcase-w;
+			border-radius: $img-border-radius;
+		}
+	}
+
+	& .thumbnail {
+		margin-top: 20px;
+		width: $showcase-w;
+
+		& img {
+			width: calc(($showcase-w - $thumbnail-space * 3) / 4);
+			border-radius: $img-border-radius;
+			border: 2px solid transparent;
+			cursor: pointer;
+
+			&:hover,
+			&:active {
+				border: 2px solid var.$color-orange;
+				opacity: .3;
+			}
+		}
+	}
+
+	& .cover {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background-color: rgba(0, 0, 0, .8);
+		z-index: 99;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&-container {
+			position: relative;
+			
+			& .button-close {
+				cursor: pointer;
+				position: absolute;
+				top: -30px;
+				right: 0;
+				filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(286deg) brightness(109%) contrast(100%);
+	
+				&:hover,
+				&:active {
+					filter: var.$color-orange-active;
+				}
+			}
+	
+			& .custom-button {
+				position: absolute;
+				cursor: pointer;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				background-color: var.$color-white;
+				top: 40%;
+				z-index: 1;
+				transform: translateY(-50%);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+	
+				&:hover img,
+				&:active img {
+					filter: var.$color-orange-active;
+				}
+	
+				&-prev {
+					left: -20px;
+				}
+				&-next {
+					right: -20px;
+				}
+			}
+		}
+	}
+}

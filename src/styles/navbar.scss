@@ -39,7 +39,7 @@
 			&-img {
 				&:hover,
 				&:active {
-					filter: invert(47%) sepia(95%) saturate(862%) hue-rotate(348deg) brightness(105%) contrast(102%);
+					filter: var.$color-orange-active;
 				}
 			}
 			&-num {
