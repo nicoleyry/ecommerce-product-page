@@ -10,9 +10,16 @@ import cartDelete from '../images/icon-delete.svg';
 export default function Navbar() {
 	const [dropdown, setDropdown] = useState(false);
 	const [product, setProduct] = useState(true);
+	const [menuIsActive, setMenuIsActive] = useState(false);
 
 	return (
 		<div className="navbar">
+			<div className={`hamburger-menu ${menuIsActive ? "is-active" : ""}`}
+				onClick={() => menuIsActive ? setMenuIsActive(false) : setMenuIsActive(true)}>
+				<span className="hamburger-menu-line"></span>
+				<span className="hamburger-menu-line"></span>
+				<span className="hamburger-menu-line"></span>
+			</div>
 			<div className="navbar-main">
 				<img src={logo} alt="logo"/>
 				<p>Collections</p>
@@ -20,6 +27,21 @@ export default function Navbar() {
 				<p>Women</p>
 				<p>About</p>
 				<p>Contact</p>
+			</div>
+			<div className={`navbar-menu-mobile ${menuIsActive ? "is-active" : ""}`}>
+				<div className="menu-container">
+					<div className={`hamburger-menu ${menuIsActive ? "is-active" : ""}`}
+						onClick={() => menuIsActive ? setMenuIsActive(false) : setMenuIsActive(true)}>
+						<span className="hamburger-menu-line"></span>
+						<span className="hamburger-menu-line"></span>
+						<span className="hamburger-menu-line"></span>
+					</div>
+					<p>Collections</p>
+					<p>Men</p>
+					<p>Women</p>
+					<p>About</p>
+					<p>Contact</p>
+				</div>
 			</div>
 			<div className="navbar-costumer">
 				<div className="navbar-costumer-cart">

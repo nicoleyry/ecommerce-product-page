@@ -14,3 +14,20 @@
 		transform: translateY(1px);
 	}
 }
+
+$menu-translateY: 6px;
+$menu-rotate: 45deg;
+
+@mixin menu-active($sign) {
+	@if #{$sign} == '+' {
+		-webkit-transform: translateY($menu-translateY) rotate($menu-rotate);
+		-ms-transform: translateY($menu-translateY) rotate($menu-rotate);
+		-o-transform: translateY($menu-translateY) rotate($menu-rotate);
+		transform: translateY($menu-translateY) rotate($menu-rotate);
+	} @else if #{$sign} == '-' {
+		-webkit-transform: translateY(-$menu-translateY) rotate(-$menu-rotate);
+		-ms-transform: translateY(-$menu-translateY) rotate(-$menu-rotate);
+		-o-transform: translateY(-$menu-translateY) rotate(-$menu-rotate);
+		transform: translateY(-$menu-translateY) rotate(-$menu-rotate);
+	}
+}

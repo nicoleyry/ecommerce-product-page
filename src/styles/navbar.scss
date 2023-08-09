@@ -2,9 +2,14 @@
 @use './mixins' as mix;
 
 .navbar {
+	position: relative;
 	border-bottom: 3px solid var.$color-light-grayish-blue;
 	justify-content: space-around;
 	@include mix.alignment-center();
+
+	@media screen and (max-width: var.$mobile) {
+		padding-top: 5px;
+	}
 
 	& img {
 		cursor: pointer;
@@ -13,7 +18,11 @@
 	&-main {
 		@include mix.alignment-center();
 
-		& p {
+		@media screen and (max-width: var.$mobile) {
+			margin-left: 30px;
+		}
+
+		&>p {
 			padding: 20px;
 			cursor: pointer;
 			color: var.$color-dark-grayish-blue;
@@ -24,6 +33,93 @@
 				color: var.$color-dark-blue;
 				border-bottom: 3px solid var.$color-orange;
 			}
+
+			@media screen and (max-width: var.$mobile) {
+				display: none;
+			}
+		}
+	}
+	& .hamburger-menu {
+		display: none;
+		position: absolute;
+		left: 20px;
+
+		@media screen and (max-width: var.$mobile) {
+			display: block;
+		}
+
+		&:hover{
+			cursor: pointer;
+		}
+
+		&-line{
+			width: 20px;
+			height: 3px;
+			background-color: var.$color-dark-grayish-blue;
+			display: block;
+			margin: 3px 0;
+			-webkit-transition: all 0.3s ease-in-out;
+			-o-transition: all 0.3s ease-in-out;
+			transition: all 0.3s ease-in-out;
+
+			&:nth-child(3) {
+				margin-bottom: 0;
+			}
+		}
+
+		&.is-active .hamburger-menu-line:nth-child(2){
+			opacity: 0;
+		}
+		
+		&.is-active .hamburger-menu-line:nth-child(1){
+			@include mix.menu-active('+');
+		}
+		
+		&.is-active .hamburger-menu-line:nth-child(3){
+			@include mix.menu-active('-');
+		}
+	}
+
+	&-menu-mobile {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 0;
+		overflow: hidden;
+		height: 100vh;
+		background-color: rgba(var.$color-black, .8);
+		z-index: 99;
+
+		&.is-active {
+			width: 100vw;
+		}
+		& .menu-container {
+			width: 0;
+			height: 100vh;
+			background-color: var.$color-white;
+			padding: 0;
+			-webkit-transition: width 0.5s linear;
+			-moz-transition: width 0.5s linear;
+			-o-transition: width 0.5s linear;
+			transition: width 0.5s linear;
+
+			& .hamburger-menu {
+				margin-bottom: 30px;
+			}
+
+			&>p {
+				font-weight: 700;
+				font-size: 14px;
+				margin-top: 20px;
+
+				&:first-of-type {
+					margin-top: 50px;
+				}
+			}
+		}
+		&.is-active .menu-container {
+			width: 250px;
+			padding: 15px 20px;
 		}
 	}
 
@@ -60,6 +156,7 @@
 				position: absolute;
 				left: 50%;
 				top: 35px;
+				z-index: 2;
 				transform: translateX(-50%);
 				box-shadow:
 					0 4px 8px 0 rgba(var.$color-black, 0.05),
@@ -67,6 +164,13 @@
 				border-radius: 5px;
 				width: 230px;
 				height: auto;
+
+				@media screen and (max-width: var.$mobile) {
+					position: fixed;
+					top: 50px;
+					left: 50%;
+					width: 98vw;
+				}
 
 				&-top {
 					border-bottom: 3px solid var.$color-light-grayish-blue;
