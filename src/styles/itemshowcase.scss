@@ -11,6 +11,10 @@ $img-border-radius: 10px;
 	justify-self: end;
 	max-width: $showcase-w;
 
+	@media screen and (max-width: var.$mobile) {
+		justify-self: start;
+	}
+
 	& .showcase {
 		width: $showcase-w;
 

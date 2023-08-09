@@ -1,3 +1,4 @@
+@use './styles/variables' as var;
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap');
 
 * {
@@ -7,9 +8,14 @@
 	font-family: 'League Spartan', sans-serif;
 }
 
-.main-contain {
+.main-content {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	justify-content: center;
 	column-gap: 100px;
+
+	@media screen and (max-width: var.$mobile) {
+		grid-template-rows: repeat(2, 1fr);
+		grid-template-columns: auto;
+	}
 }
