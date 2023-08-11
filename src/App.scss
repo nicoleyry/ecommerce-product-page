@@ -14,8 +14,11 @@
 	justify-content: center;
 	column-gap: 100px;
 
-	@media screen and (max-width: var.$mobile) {
+	@media screen and (max-width: var.$breakpoint-s) {
 		grid-template-rows: repeat(2, 1fr);
 		grid-template-columns: auto;
+	}
+	@media screen and (max-width: var.$breakpoint-m) {
+		column-gap: 50px;
 	}
 }

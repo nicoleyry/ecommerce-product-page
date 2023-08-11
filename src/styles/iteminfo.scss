@@ -2,9 +2,13 @@
 @use "./mixins" as mix;
 
 .item-info {
-	max-width: 350px;
+	max-width: var.$content-width;
 	margin-top: 50px;
 	align-self: center;
+
+	@media screen and (max-width: var.$breakpoint-m) {
+		max-width: var.$content-width-m;
+	}
 
 	& .subtitle {
 		text-transform: uppercase;

@@ -1,7 +1,7 @@
 @use './variables' as var;
 @use './mixins' as mix;
 
-$showcase-w: 350px;
+$thumbnail-space-s: 5px;
 $thumbnail-space: 30px;
 $img-border-radius: 10px;
 
@@ -9,30 +9,50 @@ $img-border-radius: 10px;
 	position: relative;
 	margin-top: 50px;
 	justify-self: end;
-	max-width: $showcase-w;
+	max-width: var.$content-width;
 
-	@media screen and (max-width: var.$mobile) {
+	@media screen and (max-width: var.$breakpoint-s) {
 		justify-self: start;
 	}
 
+	@media screen and (max-width: var.$breakpoint-m) {
+		max-width: var.$content-width-m;
+	}
+
 	& .showcase {
-		width: $showcase-w;
+		width: var.$content-width;
+
+		@media screen and (max-width: var.$breakpoint-m) {
+			width: var.$content-width-m;
+		}
 
 		& img {
-			width: $showcase-w;
+			width: var.$content-width;
 			border-radius: $img-border-radius;
+
+			@media screen and (max-width: var.$breakpoint-m) {
+				width: var.$content-width-m;
+			}
 		}
 	}
 
 	& .thumbnail {
 		margin-top: 20px;
-		width: $showcase-w;
+		width: var.$content-width;
+
+		@media screen and (max-width: var.$breakpoint-m) {
+			width: var.$content-width-m;
+		}
 
 		& img {
-			width: calc(($showcase-w - $thumbnail-space * 3) / 4);
+			width: calc((var.$content-width - $thumbnail-space * 3) / 4);
 			border-radius: $img-border-radius;
 			border: 2px solid transparent;
 			cursor: pointer;
+
+			@media screen and (max-width: var.$breakpoint-m) {
+				width: 100%;
+			}
 
 			&:hover,
 			&:active {

@@ -7,7 +7,7 @@
 	justify-content: space-around;
 	@include mix.alignment-center();
 
-	@media screen and (max-width: var.$mobile) {
+	@media screen and (max-width: var.$breakpoint-m) {
 		padding-top: 5px;
 	}
 
@@ -18,7 +18,7 @@
 	&-main {
 		@include mix.alignment-center();
 
-		@media screen and (max-width: var.$mobile) {
+		@media screen and (max-width: var.$breakpoint-m) {
 			margin-left: 30px;
 		}
 
@@ -34,7 +34,7 @@
 				border-bottom: 3px solid var.$color-orange;
 			}
 
-			@media screen and (max-width: var.$mobile) {
+			@media screen and (max-width: var.$breakpoint-m) {
 				display: none;
 			}
 		}
@@ -44,7 +44,7 @@
 		position: absolute;
 		left: 20px;
 
-		@media screen and (max-width: var.$mobile) {
+		@media screen and (max-width: var.$breakpoint-m) {
 			display: block;
 		}
 
@@ -165,7 +165,7 @@
 				width: 230px;
 				height: auto;
 
-				@media screen and (max-width: var.$mobile) {
+				@media screen and (max-width: var.$breakpoint-m) {
 					position: fixed;
 					top: 50px;
 					left: 50%;
