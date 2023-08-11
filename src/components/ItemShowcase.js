@@ -9,7 +9,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
-// import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 
@@ -38,10 +37,14 @@ export default function ItemShowcase() {
 	const [lightboxThumbsSwiper, setLightboxThumbsSwiper] = useState(null);
 	const [showLightbox, setShowLightBox] = useState(false);
 
-	const lightboxHandler = (e) => {
+	const closeLightboxHandler = (e) => {
 		e.target.classList.contains('cover') || e.target.classList.contains('button-close')
 			? setShowLightBox(false)
 			: setShowLightBox(true);
+	};
+
+	const showLightboxHandler = () => {
+		(window.innerWidth > '660' && !showLightbox) ? setShowLightBox(true) : setShowLightBox(false);
 	};
 
 	return (
@@ -49,8 +52,12 @@ export default function ItemShowcase() {
 			<Swiper
 				loop={true}
 				spaceBetween={10}
+				navigation={{
+					prevEl: '.custom-button-prev',
+					nextEl: '.custom-button-next',
+				}}
 				thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
-				modules={[Thumbs]}
+				modules={[Navigation, Thumbs]}
 				className='showcase'
 			>
 				<SwiperSlide>
@@ -66,6 +73,12 @@ export default function ItemShowcase() {
 					<img src={product4} alt='Product 4' />
 				</SwiperSlide>
 			</Swiper>
+			<div className='custom-button custom-button-prev custom-button-showcase custom-button-showcase-prev'>
+				<img src={iconPrev} alt='previous' />
+			</div>
+			<div className='custom-button custom-button-next custom-button-showcase custom-button-showcase-next'>
+				<img src={iconNext} alt='next' />
+			</div>
 			<Swiper
 				onSwiper={setThumbsSwiper}
 				loop={true}
@@ -79,34 +92,34 @@ export default function ItemShowcase() {
 					<img
 						src={product1Thumb}
 						alt='Product 1 Thumbnail'
-						onClick={() => (!showLightbox ? setShowLightBox(true) : setShowLightBox(false))}
+						onClick={showLightboxHandler}
 					/>
 				</SwiperSlide>
 				<SwiperSlide>
 					<img
 						src={product2Thumb}
 						alt='Product 2 Thumbnail'
-						onClick={() => (!showLightbox ? setShowLightBox(true) : setShowLightBox(false))}
+						onClick={showLightboxHandler}
 					/>
 				</SwiperSlide>
 				<SwiperSlide>
 					<img
 						src={product3Thumb}
 						alt='Product 3 Thumbnail'
-						onClick={() => (!showLightbox ? setShowLightBox(true) : setShowLightBox(false))}
+						onClick={showLightboxHandler}
 					/>
 				</SwiperSlide>
 				<SwiperSlide>
 					<img
 						src={product4Thumb}
 						alt='Product 4 Thumbnail'
-						onClick={() => (!showLightbox ? setShowLightBox(true) : setShowLightBox(false))}
+						onClick={showLightboxHandler}
 					/>
 				</SwiperSlide>
 			</Swiper>
 
 			{showLightbox && (
-				<div className='cover' onClick={(event) => lightboxHandler(event)}>
+				<div className='cover' onClick={(event) => closeLightboxHandler(event)}>
 					<div className='cover-container'>
 						<Swiper
 							loop={true}
@@ -139,14 +152,14 @@ export default function ItemShowcase() {
 						</Swiper>
 						<img
 							className='button-close'
-							onClick={(event) => lightboxHandler(event)}
+							onClick={(event) => closeLightboxHandler(event)}
 							src={iconClose}
 							alt='close'
 						/>
-						<div className='custom-button custom-button-prev'>
+						<div className='custom-button custom-button-prev custom-button-lightbox-prev'>
 							<img src={iconPrev} alt='previous' />
 						</div>
-						<div className='custom-button custom-button-next'>
+						<div className='custom-button custom-button-next custom-button-lightbox-next'>
 							<img src={iconNext} alt='next' />
 						</div>
 						<Swiper

@@ -11,12 +11,14 @@ $img-border-radius: 10px;
 	justify-self: end;
 	max-width: var.$content-width;
 
-	@media screen and (max-width: var.$breakpoint-s) {
-		justify-self: start;
-	}
-
 	@media screen and (max-width: var.$breakpoint-m) {
 		max-width: var.$content-width-m;
+	}
+
+	@media screen and (max-width: var.$breakpoint-s) {
+		justify-self: start;
+		margin-top: 0;
+		max-width: 100vw;
 	}
 
 	& .showcase {
@@ -26,12 +28,21 @@ $img-border-radius: 10px;
 			width: var.$content-width-m;
 		}
 
+		@media screen and (max-width: var.$breakpoint-s) {
+			width: 100%;
+		}
+
 		& img {
 			width: var.$content-width;
 			border-radius: $img-border-radius;
 
 			@media screen and (max-width: var.$breakpoint-m) {
 				width: var.$content-width-m;
+			}
+
+			@media screen and (max-width: var.$breakpoint-s) {
+				width: 100%;
+				border-radius: 0;
 			}
 		}
 	}
@@ -42,6 +53,9 @@ $img-border-radius: 10px;
 
 		@media screen and (max-width: var.$breakpoint-m) {
 			width: var.$content-width-m;
+		}
+		@media screen and (max-width: var.$breakpoint-s) {
+			display: none;
 		}
 
 		& img {
@@ -90,30 +104,80 @@ $img-border-radius: 10px;
 				}
 			}
 	
-			& .custom-button {
-				position: absolute;
-				cursor: pointer;
-				width: 40px;
-				height: 40px;
-				border-radius: 50%;
-				background-color: var.$color-white;
-				top: 40%;
-				z-index: 1;
-				transform: translateY(-50%);
-				@include mix.alignment-center();
-				justify-content: center;
+			// & .custom-button {
+			// 	position: absolute;
+			// 	cursor: pointer;
+			// 	width: 40px;
+			// 	height: 40px;
+			// 	border-radius: 50%;
+			// 	background-color: var.$color-white;
+			// 	top: 40%;
+			// 	z-index: 1;
+			// 	transform: translateY(-50%);
+			// 	@include mix.alignment-center();
+			// 	justify-content: center;
 	
-				&:hover img,
-				&:active img {
-					filter: var.$color-orange-active;
-				}
+			// 	&:hover img,
+			// 	&:active img {
+			// 		filter: var.$color-orange-active;
+			// 	}
+
+			// 	&-showcase {
+			// 		display: none;
+			// 		@media screen and (max-width: var.$breakpoint-s) {
+			// 			display: block;
+			// 		}
+			// 	}
 	
-				&-prev {
-					left: -20px;
-				}
-				&-next {
-					right: -20px;
-				}
+				
+			// 	&-prev {
+			// 		left: -20px;
+			// 	}
+			// 	&-next {
+			// 		right: -20px;
+			// 	}
+			// }
+		}
+	}
+
+	& .custom-button {
+		position: absolute;
+		cursor: pointer;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background-color: var.$color-white;
+		top: 40%;
+		z-index: 1;
+		transform: translateY(-50%);
+		@include mix.alignment-center();
+		justify-content: center;
+
+		&:hover img,
+		&:active img {
+			filter: var.$color-orange-active;
+		}
+		&-showcase {
+			display: none;
+			
+			@media screen and (max-width: var.$breakpoint-s) {
+				display: flex;
+			}
+
+			&-prev {
+				left: 0;
+			}
+			&-next {
+				right: 0;
+				
+			}
+		}
+		&-lightbox {
+			&-prev {
+				left: -20px;
+			}
+			&-next {
+				right: -20px;
 			}
 		}
 	}
