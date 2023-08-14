@@ -103,40 +103,6 @@ $img-border-radius: 10px;
 					filter: var.$color-orange-active;
 				}
 			}
-	
-			// & .custom-button {
-			// 	position: absolute;
-			// 	cursor: pointer;
-			// 	width: 40px;
-			// 	height: 40px;
-			// 	border-radius: 50%;
-			// 	background-color: var.$color-white;
-			// 	top: 40%;
-			// 	z-index: 1;
-			// 	transform: translateY(-50%);
-			// 	@include mix.alignment-center();
-			// 	justify-content: center;
-	
-			// 	&:hover img,
-			// 	&:active img {
-			// 		filter: var.$color-orange-active;
-			// 	}
-
-			// 	&-showcase {
-			// 		display: none;
-			// 		@media screen and (max-width: var.$breakpoint-s) {
-			// 			display: block;
-			// 		}
-			// 	}
-	
-				
-			// 	&-prev {
-			// 		left: -20px;
-			// 	}
-			// 	&-next {
-			// 		right: -20px;
-			// 	}
-			// }
 		}
 	}
 
