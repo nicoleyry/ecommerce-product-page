@@ -4,18 +4,18 @@ import iconMinus from '../images/icon-minus.svg';
 import iconPlus from '../images/icon-plus.svg';
 import iconCart from '../images/icon-cart.svg';
 
-export default function ItemInfo() {
-	const [counts, setCounts] = useState(0);
+export default function ItemInfo({setCartTotal}) {
+	const [productCounts, setProductCounts] = useState(0);
 
 	const countsHandler = (action) => {
-		let newCounts = counts;
-		if(action === 'minus' && counts > 0) {
+		let newCounts = productCounts;
+		if(action === 'minus' && productCounts > 0) {
 			newCounts -= 1;
 		} else if (action === 'plus') {
 			newCounts += 1;
 		}
 
-		setCounts(newCounts);
+		setProductCounts(newCounts);
 	};
 
 	return (
@@ -35,10 +35,10 @@ export default function ItemInfo() {
 			<div className="bottom-area">
 				<div className="counter">
 					<img className='minus'src={iconMinus} onClick={() => countsHandler('minus')} alt="minus" />
-					<span className='counts'>{counts}</span>
+					<span className='counts'>{productCounts}</span>
 					<img className='plus' src={iconPlus} onClick={() => countsHandler('plus')} alt="plus" />
 				</div>
-				<button className="button">
+				<button className="button" onClick={() => setCartTotal(productCounts)}>
 					<img className='cart-button' src={iconCart} alt="cart"/>
 					<span>Add to cart</span>
 				</button>
