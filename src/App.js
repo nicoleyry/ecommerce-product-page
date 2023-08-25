@@ -31,6 +31,10 @@ function App() {
 				<ItemShowcase />
 				<ItemInfo product={product} currentCartTotal={currentCartTotal} setAddToCartTotal={setAddToCartTotal} />
 			</div>
+			<div class="attribution">
+				Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+				Coded by <a href="https://www.nicoleyry.com/">Nicole Yang</a>.
+			</div>
 		</div>
 	);
 }
